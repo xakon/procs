@@ -7,7 +7,7 @@ BIN_NAME = procs
 
 export LONG_VERSION
 
-.PHONY: all test clean release_lnx release_win release_mac
+.PHONY: all test clean release release_lnx release_win release_mac
 
 all: test
 
@@ -19,6 +19,8 @@ watch:
 
 clean:
 	cargo clean
+
+release: release_lnx
 
 release_lnx:
 	cargo build --locked --release --target=x86_64-unknown-linux-musl
