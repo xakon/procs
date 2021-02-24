@@ -1,3 +1,6 @@
+# https://devmanual.gentoo.org/general-concepts/autotools/index.html
+# http://www.ing.iac.es/~docs/external/gmake/make_14.html
+
 VERSION = $(patsubst "%",%, $(word 3, $(shell grep version Cargo.toml)))
 BUILD_TIME = $(shell date +"%Y/%m/%d %H:%M:%S")
 GIT_REVISION = $(shell git log -1 --format="%h")
