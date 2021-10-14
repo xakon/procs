@@ -1,0 +1,42 @@
+##
+## Create a release archive for Linux.
+##
+name: Linux Release
+on: [push]
+jobs:
+  create-release:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+
+      - name: Install minimal Rust build system
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: 1.45.2
+          default: true
+
+      - name: Build software
+        run: make release
+
+      - name: Create release archives
+        run: |
+           rm -rf /tmp/inst
+           make DESTDIR=/tmp/inst install
+
+           CARGO_FLAGS='--quiet --release --frozen'
+           VERSION=$(cargo run $CARGO_FLAGS -- -V | cut -f2 -d\ )
+           REPO=$(echo $GITHUB_REPOSITORY | cut -f2 -d/)
+
+           cd /tmp/inst
+           tar zcf /tmp/$REPO-$VERSION.tar.gz .
+           zip -r /tmp/$REPO-$VERSION.zip .
+
+      - name: Upload Release Archives
+        uses: actions/upload-artifact@v2
+        with:
+          name: Archives for Ubuntu 18.04
+          path: |
+            /tmp/*.tar.gz
+            /tmp/*.zip
+          retention-days: 3
