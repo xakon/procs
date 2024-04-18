@@ -328,7 +328,7 @@ dependencies = [
  "once_cell",
  "strsim",
  "termcolor",
- "textwrap 0.16.0",
+ "textwrap",
 ]
 
 [[package]]
@@ -436,15 +436,15 @@ dependencies = [
 
 [[package]]
 name = "crossterm"
-version = "0.22.1"
+version = "0.26.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c85525306c4291d1b73ce93c8acf9c339f9b213aef6c1d85c3830cbf1c16325c"
+checksum = "a84cda67535339806297f1b331d6dd6320470d2a0fe65381e79ee9e156dd3d13"
 dependencies = [
  "bitflags",
  "crossterm_winapi 0.9.0",
  "libc",
- "mio 0.7.14",
- "parking_lot 0.11.2",
+ "mio 0.8.6",
+ "parking_lot 0.12.1",
  "signal-hook 0.3.15",
  "signal-hook-mio",
  "winapi",
@@ -1067,16 +1067,16 @@ dependencies = [
 
 [[package]]
 name = "minus"
-version = "5.3.1"
+version = "5.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "262d10ea2863abb8a350f90cca7f01a14018406631e00427e9dae5f8949c3d69"
+checksum = "a2ebce732e8b95148a3e841bb3d86b995ca1a0639f513ab2f73d8ee29bda9743"
 dependencies = [
  "crossbeam-channel",
- "crossterm 0.22.1",
+ "crossterm 0.26.1",
  "once_cell",
  "parking_lot 0.12.1",
  "regex",
- "textwrap 0.13.4",
+ "textwrap",
  "thiserror",
 ]
 
@@ -1567,7 +1567,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "29ad2e15f37ec9a6cc544097b78a1ec90001e9f71b81338ca39f430adaca99af"
 dependencies = [
  "libc",
- "mio 0.7.14",
+ "mio 0.8.6",
  "signal-hook 0.3.15",
 ]
 
@@ -1682,18 +1682,12 @@ dependencies = [
 
 [[package]]
 name = "textwrap"
-version = "0.13.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cd05616119e612a8041ef58f2b578906cc2531a6069047ae092cfb86a325d835"
-dependencies = [
- "unicode-width",
-]
-
-[[package]]
-name = "textwrap"
 version = "0.16.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "222a222a5bfe1bba4a77b45ec488a741b3cb8872e5e499451fd7d0129c9c7c3d"
+dependencies = [
+ "unicode-width",
+]
 
 [[package]]
 name = "thiserror"
