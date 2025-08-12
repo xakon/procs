@@ -38,7 +38,7 @@ anyhow        = "1.0"
 atty          = "0.2.14"
 byte-unit     = "4"
 clap          = {version = "3.2.25", features = ["derive"]}
-clap_complete = "3.2.5"
+clap_complete = "4.5.57"
 console       = "0.15.7"
 chrono        = {version = "0.4.26", default-features = false, features = ["clock"]}
 directories   = "5.0.1"
